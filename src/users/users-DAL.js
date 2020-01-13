@@ -8,7 +8,7 @@ const usersDAL = {
     return User.findOne(id);
   },
   async findOneAndUpdate(filter, update) {
-    return User.findOneAndUpdate(filter, update);
+    return User.findOneAndUpdate(filter, { $push: { appointmentTypes: update } });
   },
 };
 

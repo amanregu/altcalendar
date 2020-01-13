@@ -64,14 +64,3 @@ const userController = {
 };
 
 module.exports = userController;
-
-// {
-//     "firstName": "Aman",
-//     "middleName": "Nazir",
-//     "lastName": "Regu",
-//     "email": "amanregu@gmail.com",
-//     "userName": "aman_regu",
-//     "password": "qwerty123",
-//     "country": "India",
-//     "timeZone": "+4:30"
-//   }
