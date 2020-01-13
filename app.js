@@ -1,12 +1,17 @@
 /* eslint-disable global-require */
+require('dotenv').config();
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const userRouter = require('./routes/user');
+const authRouter = require('./routes/auth');
+const appointmentRouter = require('./routes/appointment');
 
 const app = express();
 
@@ -35,8 +40,16 @@ if (process.env.NODE_ENV === 'development') {
   app.use(require('webpack-hot-middleware')(compiler));
 }
 
+mongoose.set('useFindAndModify', false);
+mongoose.connect('mongodb://localhost:27017/altCalendar', async (err) => {
+  // eslint-disable-next-line no-console
+  console.log('connected ?', !err);
+});
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/v1/user', userRouter);
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/appointment', appointmentRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
