@@ -4,24 +4,20 @@ const userController = {
   async signUp(req, res) {
     const {
       firstName,
-      middleName,
       lastName,
       email,
-      userName,
       password,
       country,
-      timeZone,
+      phone,
     } = req.body;
     try {
       if (
         !firstName
-        || !middleName
         || !lastName
         || !email
-        || !userName
         || !password
         || !country
-        || !timeZone
+        || !phone
       ) {
         return res.status(400).json({
           status: false,
@@ -30,13 +26,11 @@ const userController = {
       }
       const user = {
         firstName,
-        middleName,
         lastName,
         email,
-        userName,
         password,
         country,
-        timeZone,
+        phone,
       };
       return res.json({
         user: await usersService.signUp(user),

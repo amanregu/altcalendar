@@ -46,10 +46,11 @@ mongoose.connect('mongodb://localhost:27017/altCalendar', async (err) => {
   console.log('connected ?', !err);
 });
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/appointment', appointmentRouter);
+app.use('*', indexRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

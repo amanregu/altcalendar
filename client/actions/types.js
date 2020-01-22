@@ -1,0 +1,9 @@
+export const AUTH_START = 'auth_start';
+export const AUTH_SUCCESS = 'auth_success';
+export const AUTH_ERROR = 'auth_error';
+export const TOKEN_VERIFICATION_START = 'token_verfication_start';
+export const TOKEN_VERIFICATION_ERROR = 'token_verification_error';
+export const TOKEN_VERIFICATION_SUCCESS = 'token_verfication_success';
+export const SIGNUP_START = 'signup_start';
+export const SIGNUP_ERROR = 'signup_error';
+export const SIGNUP_SUCCESS = 'signup_success';
